@@ -1,5 +1,21 @@
+#include <printf.h>
+
+void	render_format(t_data *data)
+{
+	char	specifier;
+
+	specifier = data->fotmat.specifier;
+	if ('%' == specifier)
+		print_char(data, '%');
+	else if ('c' == specifier)
+		print_char(data, va_arg(data->argp, int));
+//	else if ('s' == specifier)
+//		print_char(data, va_arg(data->argp, char *));
+
+//**next video
 
 
+}
 
 static	init_data(t_data *data, const char *format)
 {
@@ -39,6 +55,10 @@ int	ft_printf(const char *format, ...)
 		++data.s;
 	}
 	flush_buf(&data);
-	va_end(data.argp)
-	free(data.buf)
+	va_end(data.argp);
+	free(data.buf);
 	return (data.count_char);
+}
+
+
+

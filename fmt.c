@@ -57,14 +57,4 @@ int	parse_format(t_data *data)
 		}
 	}
 	return OK;
-
-
-
-
-
-
-
-
-
-
 }

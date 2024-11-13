@@ -1,6 +1,6 @@
 NAME = libftprint.a 
 
-SRC = 
+SRC = utils.c, buffer.c, fmt.c, functions.c, buffer.c, printf.h
 
 OBJS = $(SRC:.c=.o)
 
@@ -13,7 +13,7 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
-%.o: %.c Makefile libft.h
+%.o: %.c Makefile printf.h
 	$(CFLAGS) -c $< -o $@
 
 clean:

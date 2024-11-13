@@ -1,13 +1,13 @@
+#include <printf.h>
 
-
-void	ft_memset(void *ptr, int value, size_t n)
+void	ft_memset(void *ptr, byte value, size_t n)
 {
 	byte	*ptr_byte;
 
 	ptr_byte = (byte *)ptr;
 	while (n)
 	{
-		*ptr_byte++ = 0;
+		*ptr_byte++ = value;
 		n--;
 	}
 }
