@@ -9,9 +9,9 @@ void	flush_buf(t_data *data)
 	data->buffer_i = 0;
 }
 
-void	write_buff(t_data *data, char c)
+void	write_buf(t_data *data, char c)
 {
-	if (data->buffer_index == BUFFER_SIZE)
+	if (data->buffer_i == BUFFER_SIZE)
 		flush_buf(data);
 	data->buf[data->buffer_i++] == c;
 }

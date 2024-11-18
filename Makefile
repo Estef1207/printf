@@ -1,17 +1,16 @@
-NAME = libftprint.a 
+NAME = libftprintf.a 
 
-SRC = utils.c, buffer.c, fmt.c, functions.c, buffer.c, printf.h
+SRC = buffer.c fmt.c functions.c main.c render_char.c utils.c
 
-OBJS = $(SRC:.c=.o)
+OBJECTS = $(SRC:.c=.o)
 
 CFLAGS = cc -Wall -Werror -Wextra
 
 
-
-all: $(NAME)
-
 $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
+
+all: $(NAME)
 
 %.o: %.c Makefile printf.h
 	$(CFLAGS) -c $< -o $@

@@ -46,13 +46,13 @@ typedef struct	s_format
 {
 	bool	justified;
 	bool	sing;
-	bool 	space;
+	bool	space;
 	bool	hash;
 	bool	zero;
 	char	specifier;
-	int	width_len;
-	int	precision_value;
-	bool 	toupper;
+	int		width_len;
+	int		precision_value;
+	bool	toupper;
 	e_base	base;
 }			t_format;
 
@@ -61,20 +61,20 @@ typedef struct	s_data
 	const char	*s;
 	va_list		argp
 
-	int	count_char;
-	char	*buf;
-	int	buffer_i;
+	int			count_char;
+	char		*buf;
+	int			buffer_i;
 
 	t_format	format;
 }			t_data;
 
 
-void    ft_memset(void *ptr, byte value, size_t n);
-bool    in(const char *s, char c);
-int     parse_format(t_data *data);
-void    write_buf(t_data *data, char c);
+void	ft_memset(void *ptr, byte value, size_t n);
+bool	in(const char *s, char c);
+int		parse_format(t_data *data);
+void	write_buf(t_data *data, char c);
 void	putchar_buf_n(char c, int precision, t_data *data);
-void    print_char(t_data *data, int c);
+void	print_char(t_data *data, int c);
 
 
 
