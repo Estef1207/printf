@@ -59,11 +59,12 @@ typedef struct	s_format
 typedef struct	s_data
 {
 	const char	*s;
-	va_list		argp
+	va_list		argp;
 
 	int			count_char;
 	char		*buf;
-	int			buffer_i;
+
+	size_t		buffer_i;
 
 	t_format	format;
 }			t_data;
