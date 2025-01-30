@@ -1,26 +1,29 @@
-NAME = libftprintf.a 
+NAME	=	libftprintf.a
+SRC	=	ft_printf.c	\
+		utils.c	\
+	
+		
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra
+RM = rm -rf
+AR = ar crs
 
-SRC = buffer.c fmt.c functions.c main.c render_char.c utils.c
+OBJS =	$(SRC:.c=.o)
 
-OBJECTS = $(SRC:.c=.o)
-
-CFLAGS = cc -Wall -Werror -Wextra
-
-
-$(NAME): $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS)
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
+	
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
-%.o: %.c Makefile printf.h
-	$(CFLAGS) -c $< -o $@
-
 clean:
-	rm -f $(OBJECTS)
+	$(RM) $(OBJS)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:	clean
+	$(RM) $(NAME)
 
-re:	fclean all
+re: fclean all
 
 .PHONY: all clean fclean re
