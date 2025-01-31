@@ -21,7 +21,7 @@ int		ft_printf(char const *str, ...);
 void	ft_putc(char c, size_t *count);
 void	ft_puts(char *str, size_t *count);
 void	ft_putp(void *ptr, size_t *count);
-void	ft_putnum_unsigned(unsigned long long num, size_t *count, int base, char *digits);
-void	ft_putnum_signed(long long num, size_t *count, int base, char *digits);
+void	ft_putnum_u(unsigned long long num, size_t *count, int base, char *dig);
+void	ft_putnum_signed(long long num, size_t *count, int base, char *dig);
 
 #endif

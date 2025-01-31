@@ -29,7 +29,7 @@ void	ft_puts(char *str, size_t *count)
 	}
 }
 
-void	ft_putnum_unsigned(unsigned long long num, size_t *count, int base, char *digits)
+void	ft_putnum_u(unsigned long long num, size_t *count, int base, char *dig)
 {
 	char	buffer[20];
 	int		i;
@@ -42,41 +42,35 @@ void	ft_putnum_unsigned(unsigned long long num, size_t *count, int base, char *d
 	}
 	while (num > 0)
 	{
-		buffer[i++] = digits[num % base];
+		buffer[i++] = dig[num % base];
 		num /= base;
 	}
 	while (i > 0)
 		ft_putc(buffer[--i], count);
 }
 
-void	ft_putnum_signed(long long num, size_t *count, int base, char *digits)
+void	ft_putnum_signed(long long num, size_t *count, int base, char *dig)
 {
 	char	buffer[20];
 	int		i;
 
-	i = 0;
 	if (num == 0)
-	{
-		ft_putc('0', count);
-		return ;
-	}
+		return (ft_putc('0', count));
 	if (num < 0)
 	{
 		ft_putc('-', count);
-		if (num == LLONG_MIN) // Caso especial para LLONG_MIN
-		{
-			ft_puts("9223372036854775808", count);
-			return ;
-		}
+		if (num == LLONG_MIN)
+			return (ft_puts("9223372036854775808", count));
 		num = -num;
 	}
-	while (num > 0)
+	i = 0;
+	while (num)
 	{
-		buffer[i++] = digits[num % base];
+		buffer[i++] = dig[num % base];
 		num /= base;
 	}
-	while (i > 0)
-		ft_putc(buffer[--i], count);
+	while (i--)
+		ft_putc(buffer[i], count);
 }
 
 void	ft_putp(void *ptr, size_t *count)
@@ -90,5 +84,5 @@ void	ft_putp(void *ptr, size_t *count)
 	}
 	ptr2 = (unsigned long long)ptr;
 	ft_puts("0x", count);
-	ft_putnum_unsigned(ptr2, count, 16, "0123456789abcdef");
+	ft_putnum_u(ptr2, count, 16, "0123456789abcdef");
 }

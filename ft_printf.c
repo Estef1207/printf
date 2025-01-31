@@ -23,11 +23,11 @@ void	ft_putall(va_list va, char *str, size_t *count)
 	else if (*str == 'i' || *str == 'd')
 		ft_putnum_signed(va_arg(va, int), count, 10, "0123456789");
 	else if (*str == 'u')
-		ft_putnum_unsigned(va_arg(va, unsigned int), count, 10, "0123456789");
+		ft_putnum_u(va_arg(va, unsigned int), count, 10, "0123456789");
 	else if (*str == 'x')
-		ft_putnum_unsigned(va_arg(va, unsigned int), count, 16, "0123456789abcdef");
+		ft_putnum_u(va_arg(va, unsigned int), count, 16, "0123456789abcdef");
 	else if (*str == 'X')
-		ft_putnum_unsigned(va_arg(va, unsigned int), count, 16, "0123456789ABCDEF");
+		ft_putnum_u(va_arg(va, unsigned int), count, 16, "0123456789ABCDEF");
 	else if (*str == '%')
 		ft_putc('%', count);
 }
